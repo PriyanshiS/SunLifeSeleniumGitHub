@@ -1,0 +1,43 @@
+package sunlifeTestCases;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+
+import sunlifePOM.InsuranceOverviewPOM;
+
+public class PHITab {
+	WebDriver driver;
+	String baseURL;
+	InsuranceOverviewPOM insuranceoverview3;
+	Actions action;
+	JavascriptExecutor jse;
+
+	@Before
+	public void setUp() throws Exception {
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\Anky\\Eclipse WorkSpaces\\Priyanshi\\Selenium drivers\\geckodriver-v0.18.0-win64\\geckodriver.exe");
+		driver = new FirefoxDriver();
+		baseURL = "https://www.sunlife.ca/ca/Insurance?vgnLocale=en_CA";
+		insuranceoverview3 = new InsuranceOverviewPOM(driver);	
+	}
+
+	@Test
+	public void PHItest() {
+		driver.get(baseURL);
+		insuranceoverview3.clickPHITab();	
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		driver.quit();
+	}
+
+	
+
+}

@@ -1,0 +1,126 @@
+package sunlifePOM;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+public class InsuranceOverviewPOM {
+	public WebDriver driver;
+	
+	@FindBy (xpath = ".//*[@id='page-content']/div/div/div[2]/div/div/div[1]/div/div[2]/p[2]/a")
+    WebElement learnMoreAboutLifeInsuranceTab;
+	
+	@FindBy (xpath = "/html/body/div[2]/div[2]/div/div/div[2]/div/div/div[2]/div/div[2]/p[2]/a")
+	public WebElement learnMoreAboutHealthInsuranceTab;
+	
+	@FindBy (xpath = "/html/body/div[2]/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/p[3]/a")
+	WebElement lifeInsuranceCalculatorTab;
+	
+	@FindBy (xpath = "/html/body/div[2]/div[2]/div/div/div[2]/div/div/div[2]/div/div[2]/p[3]/a[1]")
+	WebElement buildingTab;
+	
+	@FindBy (xpath = "/html/body/div[2]/div[2]/div/div/div[2]/div/div/div[2]/div/div[2]/p[3]/a[2]")
+    WebElement preretirementTab;
+	
+	@FindBy (xpath = "/html/body/div[2]/div[2]/div/div/div[3]/div/div/div/div/div[1]/h4/a")
+	WebElement pHITab;
+	
+	@FindBy (xpath = "//div[@id=\"consumerPC\"]")
+	WebElement postalTab;
+	
+	@FindBy (xpath = "html/body/div[2]/div[2]/div/div/div[4]/div[2]/div/form/div[2]/input[2]")
+	WebElement findAnAdvisorTab;
+	
+	@FindBy (xpath = ".//*[@id='global-header']/div/div[2]/div/div[1]/ul/li[1]/a")
+	WebElement insuranceTab;
+	
+	public InsuranceOverviewPOM  (WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	public void clickLearnMoreAboutLifeInsuranceTab() {
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.visibilityOf(learnMoreAboutLifeInsuranceTab));
+		learnMoreAboutLifeInsuranceTab.click();
+	}
+	public void clickLearnMoreAboutHealthInsuranceTab() {
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.visibilityOf(learnMoreAboutHealthInsuranceTab));
+		learnMoreAboutHealthInsuranceTab.click();
+	}
+	// getters
+	public WebElement getlifeInsuranceCalculator() {
+		return this.lifeInsuranceCalculatorTab;
+	}
+	
+	public void clickLifeInsuranceCalculatorTab() {
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.visibilityOf(lifeInsuranceCalculatorTab));
+		lifeInsuranceCalculatorTab.click();
+	}
+	
+	public WebElement getBuildingTab() {
+		return this.buildingTab;
+	}
+	
+	public void clickBuildingTab() {
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.visibilityOf(buildingTab));
+		buildingTab.click();
+	}
+	
+	public WebElement getPreretirementTab() {
+		return this.preretirementTab;
+	}
+	
+	public void clickPreretirementTab() {
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.visibilityOf(preretirementTab));
+		preretirementTab.click();
+	}
+	
+	public WebElement getPHITab() {
+		return this.pHITab;
+	}
+	
+	public void clickPHITab() {
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.visibilityOf(pHITab));
+		pHITab.click();
+	}
+	
+	public WebElement getPostalCodeTab() {
+		return this.postalTab;
+	}
+	
+	public void clickPostalcodeTab() {
+		WebDriverWait wait = new WebDriverWait(driver, 3);
+		wait.until(ExpectedConditions.visibilityOf(postalTab));
+		postalTab.click();
+	}
+	public void setPostalTab(String postalcode) {
+		postalTab.sendKeys(postalcode);
+	}
+	
+	public WebElement getFindAnAdvisor() {
+		return this.findAnAdvisorTab;
+	}
+
+	public void clickFindAnAdvisorTab() {
+		WebDriverWait wait = new WebDriverWait(driver, 3);
+		wait.until(ExpectedConditions.visibilityOf(findAnAdvisorTab));
+		findAnAdvisorTab.click();
+	}
+	
+	public WebElement getInsuranceTab() {
+		return this.insuranceTab;
+	}
+	
+}
+
+
